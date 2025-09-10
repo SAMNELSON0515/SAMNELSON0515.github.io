@@ -6,6 +6,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.typekit.net/wsi1dwo.css">
     <style>
+        :root{
+          /* SPACING SYSTEM */
+            --size-1: 8px;
+            --size-2: 16px;
+            --size-3: 24px;
+            --size-4: 32px;
+            --size-5: 48px;
+
+          /* TYPOGRAPHY SCALE */
+            --fontsize-1: 24px;
+            --fontsize-2: calc(var(--fontsize-1) * 1.25); 
+            --fontsize-3: calc(var(--fontsize-2) * 1.25);    
+            --fontsize-4: calc(var(--fontsize-3) * 1.25);
+            --fontsize-5: calc(var(--fontsize-4) * 1.25);  
+        }
+
         html {
             font-family: 'Roboto', sans-serif;  
             font-weight: 400;
@@ -14,52 +30,61 @@
 
         .flex {
             display: flex;
-            gap: 10px;
+            gap: var(--size-2);
             flex-wrap: wrap;
         }
 
+        /* HEXCODES AND CONTRAST RATIOS*/
         .color-box {
             width: 200px;
             height: 200px;
             display: inline-block;
+            color:white;
+            padding: var(--size-2);
         }
         #box1 {
-            background-color: #000807;
+            background-color: #454545;
         }  
         #box2 {
-            background-color: #a2a3bb;
-        }  
+            background-color: #545473;
+        }
         #box3 {
-            background-color: #9395d3;
+            background-color: #6061BE;
         }  
         #box4 {
-            background-color: #b3b7ee;
+            background-color: #4D54D5;
         }  
         #box5 {
-            background-color: #fbf9ff;
+            background-color: #1466B3;
         }
-
+        
+         /* TYPOGRAPHY HIERARCHY*/
         p {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: var(--fontsize-1);
+            margin-bottom: var(--size-1);
+            
         }
 
         .small-text {
-            font-size: 14px;
+            font-size: calc(var(--fontsize-1) * 0.5);
         }
 
         h3 {
-            font-size: 24px;
+            font-size: var(--fontsize-3);
+            margin-bottom: var(--size-4);
         }
 
         h2 {
-            font-size: 30px;
+            font-size: var(--fontsize-4) ;
+            margin-bottom: var(--size-3);
         }
 
         h1 {
-            font-size: 36px;
+         font-size: var(--fontsize-5);
+         margin-bottom: var(--size-2)
         }
 
+ /* INTERACTIVE COMPONENTS */
         a {
             color: #000807;
             text-decoration: none;
@@ -67,32 +92,102 @@
 
         a:hover {
             text-decoration: underline;
-            color: #9395d3;
+            color: #454545;
+            
         }
 
         a:visited {
-            color: #a2a3bb;
+            color: #1466B3;
         }
-        /* need to include color codes--contrast--button. */
+
+        a:focus {
+             color: #6061BE;
+    text-decoration: underline;
+    outline: 3px solid #6061BE; 
+    outline-offset: 3px; 
+        }
+
+
+    button {
+        background-color: #6061BE;
+        color: white;
+        border: none;
+        padding: var(--size-2) var(--size-3);
+        font-size: var(--fontsize-1);
+        border-radius: 8px;
+        cursor: pointer;
+        }
+
+    button:hover {
+          background-color: #4D54D5;
+    }
+
+    button:focus {
+        outline: 3px solid #1466B3;
+        outline-offset: 3px;
+    }
+
+/* SPACING SYSTEM DEMO */
+    .spacing-demo {
+        background-color: #d3d3d3;
+      margin-bottom: var(--size-1);
+        }
+
+        .size-1 { height: var(--size-1); }
+        .size-2 { height: var(--size-2); }
+        .size-3 { height: var(--size-3); }
+        .size-4 { height: var(--size-4); }
+        .size-5 { height: var(--size-5); }
 
     </style>
 </head>
 <body>
-    <div class="color-box" id="box1"></div>  
-    <div class="color-box" id="box2"></div>  
-    <div class="color-box" id="box3"></div>  
-    <div class="color-box" id="box4"></div>  
-    <div class="color-box" id="box5"></div>    
+    <div class="color-box" id="box1"> 
+        <p> Hexcode: #454545 </p>
+        <p> Contrast: 9.58:1 </p>
+    </div>  
+    <div class="color-box" id="box2"> 
+        <p> Hexcode: #545473 </p>
+        <p> Contrast: 7.25:1 </p>
+    </div>  
+    <div class="color-box" id="box3"> 
+        <p> Hexcode: #6061BE </p>
+        <p> Contrast: 5.31:1 </p>
+    </div>  
+    <div class="color-box" id="box4"> 
+        <p> Hexcode: #4D54D5 </p>
+        <p> Contrast: 5.92:1 </p>
+    </div>  
+    <div class="color-box" id="box5"> 
+        <p> Hexcode: #1466B3 </p>
+        <p> Contrast: 5.86:1 </p>
+    </div>    
 
     <h1>This is a heading 1</h1>
     <h2>This is a heading 2</h2>
     <h3>This is a heading 3</h3>
-
     <p>This is paragraph text</p>
     <p class = "small-text"> This is small text</p>
 
+    <section>
+  <h3>This is my spacing system</h3>
+  <div class="spacing-demo size-1">Size 1 (8px)</div>
+  <div class="spacing-demo size-2">Size 2 (16px)</div>
+  <div class="spacing-demo size-3">Size 3 (24px)</div>
+  <div class="spacing-demo size-4">Size 4 (32px)</div>
+  <div class="spacing-demo size-5">Size 5 (48px)</div>
+</section>
+
+<section>
+  <h3>Interactive Component Showcase</h3>
+  <button class="button">this is a button</button>
+</section>
+
     <p>
-        <a href= "#"> this is a link </a></p>
+        <a href="https://samnelson0515.github.io/wa/wa3/main.html">This is a link</a>
+    </p>
+
+
 
 </body>
 </html>
