@@ -8,6 +8,21 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+
+header {
+          margin-top: 50px;
+          margin-right: 20px;
+          margin-bottom: 30px;
+          margin-left: 20px;
+            text-align: center;
+        }
+
+        body {
+        margin: 0;
+        padding: 0;
+        background-color: #466DA6;
+        color: white;
+    }
         :root{
           /* SPACING SYSTEM */
             --size-1: 8px;
@@ -30,18 +45,20 @@
             font-style: normal; 
     }
 
-        .flex {
-            display: flex;
-            gap: var(--size-2);
+         .flex {
+           flex-direction: row;
+            justify-content: center;
+          gap: var(--size-2);
             flex-wrap: wrap;
-        }
+}
+
 
         /* HEXCODES AND CONTRAST RATIOS*/
         .color-box {
-            width: 200px;
-            height: 200px;
-            display: inline-block;
             color:white;
+            display: flex; 
+            align-items: right;      
+            margin: var(--size-4);
             padding: var(--size-2);
         }
         #box1 {
@@ -129,22 +146,31 @@
         outline-offset: 3px;
     }
 
+
     </style>
 </head>
 <body>
     <header>
         <h1 > More Photos </h1>
-        <p> Below are some more photos I've taken over the past few years--primarily when I was a photographer for ROAM.</p>
+        <p tabindex="1"> Below are some more photos I've taken over the past few years--primarily when I was a photographer for ROAM.</p>
      </header>
         
      <main>
-             <section>
-                <img src= "../wa3/img/PIC1.jpg" alt="Girl holding a lighter" width = "400" height = "600">
-                    <p> Union Station, January 2025 </p>
-              <img src= "../wa3/img/PIC2.png" alt="Girl walking with suiitcase by a creek" width = "600" height = "400">
-                      <p> Crested Butte, July 2025 </p>
-               <img src= "../wa3/img/PIC3.png" alt= "Girl with angel wings sitting on a grassy hill" width = "600" height = "400"> 
-                    <p> El Dorado National Park, May 2025 </p>
+            <section id="box3" class="color-box ">
+              <figure>
+                    <img  tabindex="2" src="../wa3/img/PIC1.jpg" alt="Girl holding a lighter" width="200" height="300">
+             <figcaption>Union Station, January 2025</figcaption>
+             </figure>
+
+             <figure>
+                <img  tabindex="3" src="../wa3/img/PIC2.png" alt="Girl walking with suitcase by a creek" width="300" height="200">
+                 <figcaption>Crested Butte, July 2025</figcaption>
+              </figure>
+
+              <figure>
+                   <img  tabindex="4" src="../wa3/img/PIC3.png" alt="Girl with angel wings sitting on a grassy hill" width="300" height="200">
+                 <figcaption>El Dorado National Park, May 2025</figcaption>
+                 </figure>
             </section>
      </main>
 </body>

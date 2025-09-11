@@ -8,6 +8,16 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: hsl(216, 41%, 46%);
+            color: white;
+            display: flex;
+            align-items: center;      
+            flex-direction: column-reverse;
+        }
+        
         :root{
           /* SPACING SYSTEM */
             --size-1: 8px;
@@ -40,11 +50,12 @@
         .color-box {
             display: inline-block;
             color:white;
+            margin: var(--size-4);  
+            padding: var(--size-4);
         }
         #box1 {
-            background-color: #454545;
-            width: 500px;
-            height: 500px;
+            background-color: #274259;
+            text-align: center;
         }  
         #box2 {
             background-color: #545473;
@@ -87,7 +98,7 @@
 
  /* INTERACTIVE COMPONENTS */
         a {
-            color: #000807;
+            color: white;
             text-decoration: none;
         }
 
@@ -98,7 +109,7 @@
         }
 
         a:visited {
-            color: #1466B3;
+            color:  white;
         }
 
         a:focus {
@@ -110,41 +121,41 @@
 
 
     button {
-        background-color: #6061BE;
+        background-color: #274259;
         color: white;
         border: none;
-        padding: var(--size-2) var(--size-3);
+        padding:  var(--size-3);
         font-size: var(--fontsize-1);
         border-radius: 8px;
         cursor: pointer;
         }
 
     button:hover {
-          background-color: #4D54D5;
+          background-color: #cbcdff;
     }
 
     button:focus {
-        outline: 3px solid #1466B3;
+        outline: 3px #cbcdff;;
         outline-offset: 3px;
     }
+
 
     </style>
 </head>
 <body> 
-     <div class="color-box" id="box1"> 
-           <header>  
+           <section id="box1"   class="color-box" >
                 <h1> Welcome to Sam's Portfolio! </h1>  
-                    <img src= "../wa3/img/PICOFME.jpg" alt="picture of sam" width = "250" height = "300">
-                         <p> Hi my name is Sam! I'm currently a senior studying poli sci/CTD at CU Boulder. I also do photography/graphic & fashion design as well. Welcome to my website!!!!  </p> 
-        </header>   
-    </div>  
-    
-    <nav>
+                    <img src= "../wa3/img/PICOFME.jpg" alt="picture of sam" width = "250" height = "300" tabindex="1">
+                         <p tabindex="2"> Hi, my name is Sam! I'm currently a senior studying poli sci/CTD at CU Boulder. I also do photography/graphic & fashion design as well. Welcome to my website!!!!  </p> 
+           </section>   
+   <nav>
         <ul>
-            <li> <a href= "./contact.html" >  Contact me </a> </li>
-            <li>  <a href= "./REQUIEM.html" >  REQUIEM </a> </li>
-            <li>  <a href= "./other_photos.html"> Other Photos </a> </li>
+            <button> <a href= "./contact.html" >  Contact </a> </li> </button> 
+             <button><a href= "./REQUIEM.html" >  REQUIEM </a> </li></button>
+             <button><a href= "./other_photos.html"> Other Photos </a> </li></button>
         </ul>
     </nav>
+</body>
+</html>
 </body>
 </html>

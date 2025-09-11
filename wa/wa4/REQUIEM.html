@@ -8,6 +8,24 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+         header {
+          margin-top: 50px;
+          margin-right: 20px;
+          margin-bottom: 30px;
+          margin-left: 20px;
+            text-align: center;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #466DA6;
+            color: white;
+            display: flex;
+            align-items: center;      
+            flex-direction: column;
+        }
+        
         :root{
           /* SPACING SYSTEM */
             --size-1: 8px;
@@ -38,8 +56,6 @@
 
         /* HEXCODES AND CONTRAST RATIOS*/
         .color-box {
-            width: 200px;
-            height: 200px;
             display: inline-block;
             color:white;
             padding: var(--size-2);
@@ -129,18 +145,26 @@
         outline-offset: 3px;
     }
 
+    img {
+        display: block; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
     </style>
 </head>
 <body>
-    <header>
+    <header> 
         <h1>REQUIEM </h1>
-            <p> Over the course of Spring-Summer 2025, I worked on self-producing a magazine titled "REQUIEM". The magazine contains 10 graphic design spreads, 9 of which by me and 1 by graphic designer & friend Gabi Linke. I couldn't thank my friends enoufh for being part of this project and I hope it resonates with you all as well!  </p>
+            <p tabindex="1"> Over the course of Spring-Summer 2025, I worked on self-producing a magazine titled "REQUIEM". The magazine contains 10 graphic design spreads, 9 of which by me and 1 by graphic designer & friend Gabi Linke. I couldn't thank my friends enough for being part of this project and I hope it resonates with you all as well!  </p>
     </header>
 
     <main>
-     <section> <img src= "../wa3/img/REQUIEM.png" alt="REQUIEM magazine front cover" tabindex="0" width = "400" height = "600">
-        <h2> Currently, the project is available in the following stores: </h2>
-                <ul>
+         <section id="box4"   class="color-box" >   
+            <img src= "../wa3/img/REQUIEM.png" alt="REQUIEM magazine front cover" width = "400" height = "600" tabindex="2">
+        <h2 tabindex="3"> Currently, the project is available in the following stores: </h2>
+                <ul tabindex="4">
                     <li> BookBar (Denver, CO) </li>
                     <li> Tattered Cover (Denver, CO) </li>
                     <li> The Source (Boulder, CO) </li>
