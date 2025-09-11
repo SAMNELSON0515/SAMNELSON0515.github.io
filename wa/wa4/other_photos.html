@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photography</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        :root{
+          /* SPACING SYSTEM */
+            --size-1: 8px;
+            --size-2: 16px;
+            --size-3: 24px;
+            --size-4: 32px;
+            --size-5: 48px;
+
+          /* TYPOGRAPHY SCALE */
+            --fontsize-1: 24px;
+            --fontsize-2: calc(var(--fontsize-1) * 1.25); 
+            --fontsize-3: calc(var(--fontsize-2) * 1.25);    
+            --fontsize-4: calc(var(--fontsize-3) * 1.25);
+            --fontsize-5: calc(var(--fontsize-4) * 1.25);  
+        }
+
+        html {
+            font-family: 'Roboto', sans-serif;  
+            font-weight: 400;
+            font-style: normal; 
+    }
+
+        .flex {
+            display: flex;
+            gap: var(--size-2);
+            flex-wrap: wrap;
+        }
+
+        /* HEXCODES AND CONTRAST RATIOS*/
+        .color-box {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            color:white;
+            padding: var(--size-2);
+        }
+        #box1 {
+            background-color: #454545;
+        }  
+        #box2 {
+            background-color: #545473;
+        }
+        #box3 {
+            background-color: #6061BE;
+        }  
+        #box4 {
+            background-color: #4D54D5;
+        }  
+        #box5 {
+            background-color: #1466B3;
+        }
+        
+         /* TYPOGRAPHY HIERARCHY*/
+        p {
+            font-size: var(--fontsize-1);
+            margin-bottom: var(--size-1);
+            
+        }
+
+        .small-text {
+            font-size: calc(var(--fontsize-1) * 0.5);
+        }
+
+        h3 {
+            font-size: var(--fontsize-3);
+            margin-bottom: var(--size-4);
+        }
+
+        h2 {
+            font-size: var(--fontsize-4) ;
+            margin-bottom: var(--size-3);
+        }
+
+        h1 {
+         font-size: var(--fontsize-5);
+         margin-bottom: var(--size-2)
+        }
+
+ /* INTERACTIVE COMPONENTS */
+        a {
+            color: #000807;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #454545;
+            
+        }
+
+        a:visited {
+            color: #1466B3;
+        }
+
+        a:focus {
+             color: #6061BE;
+    text-decoration: underline;
+    outline: 3px solid #6061BE; 
+    outline-offset: 3px; 
+        }
+
+
+    button {
+        background-color: #6061BE;
+        color: white;
+        border: none;
+        padding: var(--size-2) var(--size-3);
+        font-size: var(--fontsize-1);
+        border-radius: 8px;
+        cursor: pointer;
+        }
+
+    button:hover {
+          background-color: #4D54D5;
+    }
+
+    button:focus {
+        outline: 3px solid #1466B3;
+        outline-offset: 3px;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 > More Photos </h1>
+        <p> Below are some more photos I've taken over the past few years--primarily when I was a photographer for ROAM.</p>
+     </header>
+        
+     <main>
+             <section>
+                <img src= "../wa3/img/PIC1.jpg" alt="Girl holding a lighter" width = "400" height = "600">
+                    <p> Union Station, January 2025 </p>
+              <img src= "../wa3/img/PIC2.png" alt="Girl walking with suiitcase by a creek" width = "600" height = "400">
+                      <p> Crested Butte, July 2025 </p>
+               <img src= "../wa3/img/PIC3.png" alt= "Girl with angel wings sitting on a grassy hill" width = "600" height = "400"> 
+                    <p> El Dorado National Park, May 2025 </p>
+            </section>
+     </main>
+</body>
+</html>
