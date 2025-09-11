@@ -100,11 +100,18 @@
         a {
             color: white;
             text-decoration: none;
+             background-color: #274259;
+         border: none;
+            padding:  var(--size-3);
+        font-size: var(--fontsize-1);
+        border-radius: 8px;
+        cursor: pointer;
         }
 
         a:hover {
             text-decoration: underline;
             color: #454545;
+             background-color: #cbcdff;
             
         }
 
@@ -117,28 +124,9 @@
     text-decoration: underline;
     outline: 3px solid #6061BE; 
     outline-offset: 3px; 
-        }
-
-
-    button {
-        background-color: #274259;
-        color: white;
-        border: none;
-        padding:  var(--size-3);
-        font-size: var(--fontsize-1);
-        border-radius: 8px;
-        cursor: pointer;
-        }
-
-    button:hover {
-          background-color: #cbcdff;
-    }
-
-    button:focus {
-        outline: 3px #cbcdff;;
+     outline: 3px #cbcdff;;
         outline-offset: 3px;
-    }
-
+        }
 
     </style>
 </head>
@@ -150,9 +138,9 @@
            </section>   
    <nav>
         <ul>
-            <button> <a href= "./contact.html" >  Contact </a> </li> </button> 
-             <button><a href= "./REQUIEM.html" >  REQUIEM </a> </li></button>
-             <button><a href= "./other_photos.html"> Other Photos </a> </li></button>
+             <a href= "./contact.html" >  Contact </a>  
+             <a href= "./REQUIEM.html" >  REQUIEM </a> 
+           <a href= "./other_photos.html"> Other Photos </a> 
         </ul>
     </nav>
 </body>
