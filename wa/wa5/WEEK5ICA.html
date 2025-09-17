@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif sans-serif;
+    background-color: rgb(229, 229, 229);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+    margin: 0;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .card-header {
+    background-color: #18691b;
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    font-size: 1.55em;
+    border-radius: 8px;
+  }
+
+
+  .expand-btn {
+    background-color: white;
+    border: none;
+    color:  #18691b;;
+    font-size: 0.89em;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height:1 ;
+    transition: background-color 0.7s, color 0.7s;
+  }
+
+  .expand-btn:hover {
+    background-color: #a7cd97;
+    color: white;
+  }
+
+  .card-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    border: solid 4px #18691b;
+    border-radius: 8px;
+    font-size: 1.25em;
+    padding: 16px;
+  }
+
+</style>
+<body>
+    <div class="card">
+      <div class="card-header">
+        <h3>Community Garden Project</h3>
+    <button class="expand-btn" aria-label="Expand card" aria-expanded="false">+</button>
+  </div>
+  <div class="card-content">
+        <p class="summary">Join neighbors in creating a shared growing space...</p>
+    <div class="details hidden">
+      <p>Meeting every Saturday at 10am. Tools provided. All skill levels welcome.</p>
+      <p>Contact: garden@community.org</p>
+    </div>
+  </div>
+</div>
+<script>
+    let info = false; 
+
+    const expandBtn = document.querySelector('.expand-btn');
+    const details = document.querySelector('.card-content');
+    
+    expandBtn.addEventListener('click', showInfo);
+    
+    function showInfo() {
+       // console.log('hi!');
+        //alert ('this is an alert')
+
+        if  (info == false) {
+            details.style.display = 'flex';
+            expandBtn.textContent = '-';
+            expandBtn.setAttribute('aria-expanded', 'true');
+            expandBtn.setAttribute('aria-label', 'Collapse card');
+            info = true; 
+        } else {
+            details.style.display = 'none';
+            expandBtn.textContent = '+';    
+              expandBtn.setAttribute('aria-expanded', 'false');
+              expandBtn.setAttribute('aria-label', 'Expand card');
+            info = false;
+        }
+    };
+</script>
+</body>
+</html>
