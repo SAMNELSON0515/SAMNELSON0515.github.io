@@ -5,32 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
-   /* ==== Base Navbar ==== */
 .main-nav {
   background-color: #18691b;
   color: white;
-  padding: 1rem 2rem;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
   font-size: 1.25rem;
   border-radius: 8px;
-  position: relative; /* needed for absolute dropdown */
+  position: relative; 
 }
 
-/* Branding */
+
 .nav-brand {
   font-weight: bold;
 }
 
-/* ==== Desktop Menu ==== */
 .nav-menu {
   display: flex;
   gap: 2vw;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-menu li a {
@@ -45,14 +41,14 @@
   color: #454545;
 }
 
-.nav-menu li a:focus-visible {
+.nav-menu li a:focus {
   outline: 3px solid #6061BE;
   outline-offset: 3px;
 }
 
-/* ==== Hamburger Button ==== */
+
 .nav-toggle {
-  display: none; /* hidden on desktop */
+  display: none; 
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -82,24 +78,22 @@
   background-color: #cbcdff;
 }
 
-/* ==== Mobile Menu (hidden by default) ==== */
+
 @media (max-width: 768px) {
   .nav-menu {
-    display: none;          /* hidden until toggled */
+    display: none;          
     flex-direction: column;
     gap: 1rem;
     position: absolute;
-    top: 100%;              /* dropdown below navbar */
+    top: 100%;            
     left: 0;
     width: 100%;
     background-color: #18691b;
     padding: 1rem;
-    border-radius: 0 0 8px 8px;
-    box-sizing: border-box;
   }
 
   .nav-menu.show {
-    display: flex;          /* revealed when .show is toggled */
+    display: flex;          
   }
 
  .nav-toggle {
