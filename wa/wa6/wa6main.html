@@ -141,7 +141,7 @@
 }
 
 /* BUTTON FUNCTIONALITY */
-.MoreEventsBtn {
+#toggleGridButton {
   display: block;
   margin: 2rem auto;
   align-items: center;  
@@ -153,7 +153,7 @@
   color: white;
   cursor: pointer;
 }
-.MoreEventsBtn:hover {
+#toggleGridButton:hover {
   background-color: #145214;
   /*addhover state*/
 }
@@ -179,8 +179,12 @@
 
 
 /* GRID 2 SETUP*/
-.grid2 {
-    display: none;
+.hidden-grid {
+  display:none;
+}
+.visible-grid
+{
+  display: grid;
   grid-template-columns:  repeat(2, 1fr);
   gap: 0.5rem;
   padding: 0.5rem;
@@ -189,12 +193,9 @@
   gap: 1rem;
 }
 
-.grid2.show {
-  display: grid;
-}
 
 @media (max-width: 768px) {
-  .grid2 {
+ .visible-grid  {
     grid-template-columns: 1fr;
   }
 }
@@ -243,14 +244,14 @@
   </div>
 
     <!-- Button hTML-->
-  <button class="MoreEventsBtn" id="MoreEventsBtn"> Show More Events</button>
+  <button id="toggleGridButton">More Events</button>
   <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
 
   
 
    <!-- Main grid dropdown-->
-  <div class="grid2" id="g">
-    <div>
+  <div id="myGridContainer" class="hidden-grid">
+    <div >
        <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300">
       <h4> Boulder Hike</h4>
         <p> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
@@ -266,7 +267,7 @@
         <p> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
 </p>
     </div>
-   <div>
+   <div >
        <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300">
       <h4> Monthly Chapter meeting </h4>
         <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
@@ -287,6 +288,8 @@
   }
 
   // BUTTON
+
+  /*fix js*/
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('toggleGridButton');
   const gridContainer = document.getElementById('myGridContainer');
@@ -294,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleButton.addEventListener('click', () => {
     gridContainer.classList.toggle('hidden-grid');
     gridContainer.classList.toggle('visible-grid');
+
 
   });
 });
