@@ -232,9 +232,9 @@
     <main class="content">
       <h3> Want to be involved?</h3>
         <p>We have an event this weekend! Come volunteer at our park cleanup</p>
-        <li> <h4>If you have any questions--call Liz 555-5555 </h4></li>
-         <li> When: 10/2/25, 3PM</li>
-         <li> Where: 7999 E Hannaway Dr</li>
+         <h4>If you have any questions--call Liz 555-5555 </h4>
+         <p> When: 10/2/25, 3PM</p> 
+         <p>Where: 7999 E Hannaway Dr</p>
     </main>
 
     <footer class="footer">
@@ -246,9 +246,6 @@
   <button class="MoreEventsBtn" id="MoreEventsBtn"> Show More Events</button>
   <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
 
-
-        
-  </button>
   
 
    <!-- Main grid dropdown-->
@@ -270,7 +267,7 @@
 </p>
     </div>
    <div>
-       <img src="../wa6/img/JOEL 6.png" alt="pic of Joel" width="462" height="300">
+       <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300">
       <h4> Monthly Chapter meeting </h4>
         <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
     </div>
@@ -290,15 +287,18 @@
   }
 
   // BUTTON
-  const btn = document.getElementById('MoreEventsBtn');
-  const grid = document.getElementById('g');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.getElementById('toggleGridButton');
+  const gridContainer = document.getElementById('myGridContainer');
 
-  if (btn && grid) {
-    btn.addEventListener('click', () => {
-      grid.classList.toggle('show');
-      btn.textContent = grid.classList.contains('show') ? "Hide Events" : "Show More Events";
-    });
-  }
+  toggleButton.addEventListener('click', () => {
+    gridContainer.classList.toggle('hidden-grid');
+    gridContainer.classList.toggle('visible-grid');
+
+  });
+});
+
+
 
   // ALERT BUTTON
    function showAlert() {
