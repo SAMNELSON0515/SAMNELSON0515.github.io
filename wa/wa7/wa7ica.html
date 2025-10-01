@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CommunityWebpageHome</title>
   <style>
+    
     /*NAV TOGGLE(WA5)*/
   .main-nav {
   background-color: #18691b;
@@ -175,6 +176,22 @@
 .MailingListBtn:hover {
   background-color: #145214;
   /*addhover state*/
+
+#theme {
+    display: block;
+  margin: 2rem auto;
+  align-items: center;  
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: rgb(176, 176, 176);
+  border-radius: 6px;
+  background-color: #18691b;
+  color: white;
+  cursor: pointer;
+
+}
+
+
 }
 
 
@@ -199,6 +216,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+.light {
+    background-color: antiquewhite;
+}
+
+.dark {
+    background-color: rgb(100, 99, 99)
+}
+
   </style>
 </head>
 <body>
@@ -222,7 +248,7 @@
   <!-- Main "home section"-->
   <div class="grid-container">
     <header class="header">
-      <img src="../wa6/img/img1.png" alt="group of people walking" width="520" height="320"  tabindex="1">
+      <img src="../wa6/img/img1.png" alt="group of people walking" width="520" height="320">
     </header>
 
     <nav class="sidebar">
@@ -239,36 +265,37 @@
     </main>
 
     <footer class="footer">
-     <img src="../wa6/img/img2.png" alt="google map directions to cleanup" width="520" height="320"  tabindex="2">
+     <img src="../wa6/img/img2.png" alt="google map directions to cleanup" width="520" height="320">
     </footer>
   </div>
 
     <!-- Button hTML-->
   <button id="toggleGridButton">More Events</button>
   <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
+  <button id ="theme" type ="button">Switch Mode</button>
 
   
 
    <!-- Main grid dropdown-->
   <div id="myGridContainer" class="hidden-grid">
     <div >
-       <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300" tabindex="3">
+       <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300">
       <h4> Boulder Hike</h4>
         <p> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
     </div>
    <div>
-       <img src="../wa6/img/img4.png" alt="pic of park" width="462" height="300"  tabindex="4">
+       <img src="../wa6/img/img4.png" alt="pic of park" width="462" height="300">
       <h4> Park cleanup</h4>
         <p> Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.. </p>
     </div>
     <div>
-       <img src="../wa6/img/img5.png" alt="pic of people talking" width="462" height="300" tabindex="5">
+       <img src="../wa6/img/img5.png" alt="pic of people talking" width="462" height="300">
       <h4> Workshop</h4>
         <p> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
 </p>
     </div>
    <div >
-       <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300" tabindex="6">
+       <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300">
       <h4> Monthly Chapter meeting </h4>
         <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
     </div>
@@ -277,7 +304,37 @@
 
 
 <script>
-  // NAV TOGGLE (FROM LAST WEEK) 
+
+    
+
+    let btn = document.querySelector ('#theme').addEventListener ('click', theme);
+    function theme () {
+        //console.log ("theme works");
+            setTheme ("light");
+    }
+
+    //THEME PRFERENCE
+    // Save user's theme choice
+function setTheme(theme) {
+    let inTheme = "theme";
+    if (inTheme == 'dark') {
+        theme = 'light'
+    }
+
+else {
+    theme = 'dark';
+}
+    localStorage.setItem('userTheme', theme);
+    document.body.className = theme;
+}
+
+// Load saved theme on page load
+window.addEventListener('load', function() {
+    const savedTheme = localStorage.getItem('userTheme') || 'light';
+    document.body.className = savedTheme;
+});
+
+    // NAV TOGGLE (FROM LAST WEEK) 
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
 
@@ -313,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
    function showAlert() {
             alert("You're now part of our mailing list!");
         }
+
 </script>
 
 </body>
