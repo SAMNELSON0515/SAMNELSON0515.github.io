@@ -122,7 +122,7 @@
   padding: 0.5rem;
    margin: 2rem auto;
    max-width: 900px;
-  
+
 
 }
 .header  { grid-area: header; }
@@ -177,20 +177,6 @@
   background-color: #145214;
   /*addhover state*/
 
-#theme {
-    display: block;
-  margin: 2rem auto;
-  align-items: center;  
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: rgb(176, 176, 176);
-  border-radius: 6px;
-  background-color: #18691b;
-  color: white;
-  cursor: pointer;
-
-}
-
 
 }
 
@@ -219,10 +205,12 @@
 
 .light {
     background-color: antiquewhite;
+    color: black;
 }
 
 .dark {
-    background-color: rgb(100, 99, 99)
+    background-color: rgb(100, 99, 99);
+    color:white; 
 }
 
   </style>
@@ -305,7 +293,7 @@
 
 <script>
 
-    
+    //THEME PREFERENCE
 
     let btn = document.querySelector ('#theme').addEventListener ('click', theme);
     function theme () {
@@ -313,20 +301,21 @@
             setTheme ("light");
     }
 
-    //THEME PRFERENCE
     // Save user's theme choice
 function setTheme(theme) {
-    let inTheme = "theme";
+    let inTheme = document.body.className || 'light';
     if (inTheme == 'dark') {
-        theme = 'light'
+        theme = 'light';
     }
-
 else {
     theme = 'dark';
 }
+//1. What data I'm storing -- A form of local Storage that contains "userTheme" between site visits.
     localStorage.setItem('userTheme', theme);
     document.body.className = theme;
 }
+//2. Why this data is necessary --  It's necessary to keep track of user's preference (otherwise it would default to light mode everytime)
+//3.  How users could control this data -- Users can control this data/preference by simply clicking the switch mode button in the bottom left corner. 
 
 // Load saved theme on page load
 window.addEventListener('load', function() {
