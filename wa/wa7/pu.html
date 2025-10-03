@@ -110,6 +110,7 @@
   }
 }
 
+/* Base = Mobile (default stacked) */
 .page-wrapper {
     container-type: inline-size;
     width: 100%;
@@ -128,7 +129,7 @@
     
 }
 
-/* Tablet*/
+/* Tablet layout */
 @container (min-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -140,7 +141,7 @@
 
 }
 
-/* Desktop */
+/* Desktop layout */
 @container (min-width: 1000px) {
   .grid-container {
     justify-content: center;
@@ -285,16 +286,16 @@
     </header>
 
     <nav class="sidebar">
-  <h1> Who are we?</h1>
-  <p>The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.</p>
+  <h1 id="who">Who are we?</h1>
+  <p id="about">The Sierra Club is a grassroots environmental organization...</p>
 </nav>
 
 <main class="content">
-  <h3>Want to be involved?</h3>
-  <p>We have an event this weekend! Come volunteer...</p>
-  <h4>If you have any questions--call Liz 555-5555</h4>
-  <p>When: 10/2/25, 3PM</p>
-  <p>Where: 7999 E Hannaway Dr</p>
+  <h3 id="Be_involved">Want to be involved?</h3>
+  <p id="event">We have an event this weekend! Come volunteer...</p>
+  <h4 id="questions">If you have any questions--call Liz 555-5555</h4>
+  <p id="when">When: 10/2/25, 3PM</p>
+  <p id="where">Where: 7999 E Hannaway Dr</p>
 </main>
 
     <footer class="footer">
@@ -307,43 +308,115 @@
   <button id="toggleGridButton">More Events</button>
   <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
 
+  
+
    <!-- Main grid dropdown-->
     <div class = "page-wrapper">
   <div id="myGridContainer" class="hidden-grid">
     <div >
        <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300">
-      <h4> Boulder Hike</h4>
-        <p> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
+      <h4 id = "hike"> Boulder Hike</h4>
+        <p id = "join_us"> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
     </div>
    <div>
        <img src="../wa6/img/img4.png" alt="pic of park" width="462" height="300">
-      <h4> Park cleanup</h4>
-        <p> Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.. </p>
+      <h4 id = "park" > Park cleanup</h4>
+        <p id = "attend_our"> Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.. </p>
     </div>
     <div>
        <img src="../wa6/img/img5.png" alt="pic of people talking" width="462" height="300">
-      <h4> Workshop</h4>
-        <p> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
+      <h4 id = "workshop"> Workshop</h4>
+        <p id = "participate_in"> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
 </p>
     </div>
    <div >
        <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300">
-      <h4> Monthly Chapter meeting </h4>
-        <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
+      <h4 id = "monthly_chapter"> Monthly Chapter meeting </h4>
+        <p id = "come_to"> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
     </div>
     </div>
   </div>
+  <!--Language button-->
+<select id="language-select">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+</select>
+
+
+
 <script>
-  //Langauge 
-  // Save language choice
+
+// ------------------- TRANSLATIONS -------------------
+const translations = {
+  en: {
+    who: "Who are we?",
+    about: "The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.",
+    Be_involved: "Want to be involved?",
+    event: "We have an event this weekend! Come volunteer at our park cleanup",
+    questions:  "If you have any questions--call Liz 555-5555",
+    when: "When: 10/2/25, 3PM",
+    where: "Where: 7999 E Hannaway Dr",
+    hike: "Boulder Hike",
+    join_us: "Join us for a guided hike through local trails to learn about regional ecology and conservation efforts.",
+    park: "Park cleanup",
+    attend_our: "Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.",
+    workshop: "Workshop", 
+    participate_in: "Participate in a climate action workshop focused on advocacy skills and sustainable living practices.",
+    monthly_chapter: "Monthly Chapter meeting",
+    come_to: "Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events."
+  },
+
+  es: {
+    who: "¿Quiénes somos?",
+    about: "El Sierra Club es una organización ambiental de base en los Estados Unidos dedicada a proteger los recursos naturales, promover la energía limpia y abogar por la justicia ambiental.",
+    Be_involved: "¿Quieres participar?",
+    event: "¡Tenemos un evento este fin de semana! Ven a ser voluntario en nuestra limpieza del parque.",
+    questions: "Si tienes alguna pregunta, llama a Liz al 555-5555.",
+    when: "Cuándo: 02/10/25, 3PM",
+    where: "Dónde: 7999 E Hannaway Dr",
+    hike: "Caminata en Boulder",
+    join_us: "Únete a nosotros en una caminata guiada por senderos locales para aprender sobre la ecología regional y los esfuerzos de conservación.",
+    park: "Limpieza del parque",
+    attend_our: "Participa en nuestro día de limpieza comunitaria para ayudar a restaurar los espacios naturales y reducir la contaminación en los parques locales.",
+    workshop: "Taller",
+    participate_in: "Participa en un taller de acción climática enfocado en habilidades de incidencia y prácticas de vida sostenible.",
+    monthly_chapter: "Reunión mensual del capítulo",
+    come_to: "Ven a nuestra reunión mensual del capítulo para conectarte con los miembros, discutir campañas y planear futuros eventos."
+  }
+};
+
+// ------------------- LANGUAGE SWITCH -------------------
 function setLanguage(lang) {
-    localStorage.setItem('userLanguage', lang);
-    // Update page content based on language
+  localStorage.setItem('userLanguage', lang);
+
+  document.getElementById("who").textContent = translations[lang].who;
+  document.getElementById("about").textContent = translations[lang].about;
+  document.getElementById("Be_involved").textContent = translations[lang].Be_involved;
+  document.getElementById("event").textContent = translations[lang].event;
+  document.getElementById("questions").textContent = translations[lang].questions;
+  document.getElementById("when").textContent = translations[lang].when;
+  document.getElementById("where").textContent = translations[lang].where;
+  document.getElementById("hike").textContent = translations[lang].hike;
+  document.getElementById("join_us").textContent = translations[lang].join_us;
+  document.getElementById("park").textContent = translations[lang].park;
+  document.getElementById("attend_our").textContent = translations[lang].attend_our;
+  document.getElementById("workshop").textContent = translations[lang].workshop;
+  document.getElementById("participate_in").textContent = translations[lang].participate_in;
+  document.getElementById("monthly_chapter").textContent = translations[lang].monthly_chapter;
+  document.getElementById("come_to").textContent = translations[lang].come_to;
 }
 
-// Load on page visit
-const userLang = localStorage.getItem('userLanguage') || 'en';
+// ------------------- ON PAGE LOAD -------------------
+window.addEventListener('DOMContentLoaded', () => {
+  // Restore saved language
+  const savedLang = localStorage.getItem('userLanguage') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
 
+  // Handle dropdown change
+  document.getElementById('language-select').addEventListener('change', (e) => {
+    setLanguage(e.target.value);
+  });
 
   // NAV TOGGLE
   const navToggle = document.querySelector('.nav-toggle');
@@ -367,7 +440,7 @@ const userLang = localStorage.getItem('userLanguage') || 'en';
         : "Hide Events";
     });
   }
-
+});
 
 // ------------------- ALERT BUTTON -------------------
 function showAlert() {

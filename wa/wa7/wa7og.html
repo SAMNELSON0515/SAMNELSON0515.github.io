@@ -6,7 +6,14 @@
   <title>CommunityWebpageHome</title>
   <style>
     
-    /*NAV TOGGLE(WA5) switch to container */
+    /*NAV TOGGLE(WA5)*/
+
+    .my-component-wrapper {
+        container-type: inline-size;
+        container-name: component-container;
+    }
+
+
   .main-nav {
   background-color: #18691b;
   color: white;
@@ -15,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 2 rem; 
   border-radius: 40px;
   position: relative; 
 }
@@ -79,7 +86,7 @@
   background-color: #cbcdff;
 }
 
-/*Need to swtich this to container for final site*/
+
 @media (max-width: 768px) {
   .nav-menu {
     display: none;          
@@ -110,54 +117,63 @@
   }
 }
 
-.page-wrapper {
-    container-type: inline-size;
-    width: 100%;
+/*@container (min-width: 350px) {
+    .card-layout {
+        flex-direction: 
+    }
+
+
 }
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "sidebar"
-    "content"
-    "footer";
-  grid-template-columns: 1fr; 
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 2rem auto;
+
+/*@media(min-width: 480px) {
+    .card-layout {
+        flex-direction: 
+
+@media(min-width: 1024px) {
     
 }
-
-/* Tablet*/
-@container (min-width: 768px) {
-  .grid-container {
-    grid-template-areas:
-      "header header"
-      "sidebar content"
-      "footer footer";
-    grid-template-columns: 1fr 2fr;
-  }
-
 }
 
-/* Desktop */
-@container (min-width: 1000px) {
-  .grid-container {
-    justify-content: center;
-    grid-template-areas:
-      "header sidebar"
-      "content footer";
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 900px;
-  }
-
+/* GRID 1 SETUP */
+    .grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-areas:
+    "header sidebar"
+    "content footer";
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+  padding: 0.5rem;
+   margin: 2rem auto;
+   max-width: 900px;
 }
-
 .header  { grid-area: header; }
 .sidebar { grid-area: sidebar; }
 .content { grid-area: content; }
 .footer  { grid-area: footer; }
+img {
+    width: 80%;
+    height: auto; /*but you're using something else-- contianer */
 
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer";
+    grid-template-columns: 1fr; 
+  }
+
+  img {
+    width:  100%;
+    height: auto;
+
+}
+
+}
 
 /* BUTTON FUNCTIONALITY */
 #toggleGridButton {
@@ -165,7 +181,7 @@
   margin: 2rem auto;
   align-items: center;  
   padding: 0.75rem;
-  font-size: 1rem;
+  font-size:  clamp(0.5 rem, 5vw, 1.5 rem);
   border: rgb(176, 176, 176);
   border-radius: 6px;
   background-color: #18691b;
@@ -177,12 +193,13 @@
   /*addhover state*/
 }
 
+
 .MailingListBtn {
     display: block;
   margin: 2rem auto;
   align-items: center;  
   padding: 0.75rem;
-  font-size: 1rem;
+  font-size:  clamp(0.5 rem, 5vw, 1.5 rem);
   border: rgb(176, 176, 176);
   border-radius: 6px;
   background-color: #18691b;
@@ -194,35 +211,12 @@
 .MailingListBtn:hover {
   background-color: #145214;
   /*addhover state*/
-
-
 }
+
+
 
 
 /* GRID 2 SETUP*/
-
-.page-wrapper {
-    container-type: inline-size;
-    width: 100%;
-}
- .visible-grid  {
-    grid-template-columns: 1fr;
-  }
-
-
-.light {
-    background-color: antiquewhite;
-    color: black;
-}
-
-.dark {
-    background-color: rgb(100, 99, 99);
-    color:white; 
-}
-
-/*images*/
-
-@container (min-width: 768px) {
 .hidden-grid {
   display:none;
 }
@@ -235,27 +229,26 @@
   margin: 2rem auto;
   max-width: 900px;
   gap: 1rem;
-}
-}
-
-@container (min-width: 1000px) {
-    .hidden-grid {
-  display:none;
-}
-.visible-grid
-{
-  display: grid;
-  grid-template-columns:  repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 2rem auto;
-  max-width: 900px;
-  gap: 1rem;
-}
-
+font-size:  clamp(2 px, 5vw, 18px);
 }
 
 
+@media (max-width: 768px) {
+ .visible-grid  {
+    grid-template-columns: 1fr;
+      font-size:  clamp(1 rem, 5vw, 1.5 rem);
+  }
+}
+
+.light {
+    background-color: antiquewhite;
+    color: black;
+}
+
+.dark {
+    background-color: rgb(100, 99, 99);
+    color:white; 
+}
 
   </style>
 </head>
@@ -278,37 +271,41 @@
     </nav>
 
   <!-- Main "home section"-->
-   <div class="page-wrapper">
   <div class="grid-container">
     <header class="header">
       <img src="../wa6/img/img1.png" alt="group of people walking" width="520" height="320">
     </header>
 
     <nav class="sidebar">
-  <h1> Who are we?</h1>
-  <p>The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.</p>
-</nav>
+      <h1> Who are we ?</h1>
+        <p>The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.</p>
+    </nav>
 
-<main class="content">
-  <h3>Want to be involved?</h3>
-  <p>We have an event this weekend! Come volunteer...</p>
-  <h4>If you have any questions--call Liz 555-5555</h4>
-  <p>When: 10/2/25, 3PM</p>
-  <p>Where: 7999 E Hannaway Dr</p>
-</main>
+    <main class="content">
+      <h3> Want to be involved?</h3>
+        <p>We have an event this weekend! Come volunteer at our park cleanup</p>
+         <h4>If you have any questions--call Liz 555-5555 </h4>
+         <p> When: 10/2/25, 3PM</p> 
+         <p>Where: 7999 E Hannaway Dr</p>
+    </main>
 
     <footer class="footer">
      <img src="../wa6/img/img2.png" alt="google map directions to cleanup" width="520" height="320">
     </footer>
-    </div>
   </div>
 
     <!-- Button hTML-->
   <button id="toggleGridButton">More Events</button>
   <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
+  <button id ="theme" type ="button">Switch Mode</button>
+
+  <!--Data dispaly area ---->
+  <div class="container">
+
+  </div>
+  
 
    <!-- Main grid dropdown-->
-    <div class = "page-wrapper">
   <div id="myGridContainer" class="hidden-grid">
     <div >
        <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300">
@@ -331,50 +328,95 @@
       <h4> Monthly Chapter meeting </h4>
         <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
     </div>
-    </div>
   </div>
+
+
+
 <script>
-  //Langauge 
-  // Save language choice
-function setLanguage(lang) {
-    localStorage.setItem('userLanguage', lang);
-    // Update page content based on language
+
+    //THEME PREFERENCE
+
+    let btn = document.querySelector ('#theme').addEventListener ('click', theme);
+    function theme () {
+        //console.log ("theme works");
+            setTheme ("light");
+    }
+
+    // Save user's theme choice
+function setTheme(theme) {
+    let inTheme = document.body.className || 'light';
+    if (inTheme == 'dark') {
+        theme = 'light';
+    }
+else {
+    theme = 'dark';
 }
+//1. What data I'm storing -- A value in local Storage that contains "userTheme" that saves the user's preference for light/dark between site visits.
+    localStorage.setItem('userTheme', theme);
+    document.body.className = theme;
+}
+//2. Why this data is necessary --  It's necessary to keep track of user's preference (otherwise it would default to light mode everytime)
+//3.  How users could control this data -- Users can control this data/preference by simply clicking the switch mode button in the bottom left corner. 
 
-// Load on page visit
-const userLang = localStorage.getItem('userLanguage') || 'en';
+// Load saved theme on page load
+window.addEventListener('load', function() {
+    const savedTheme = localStorage.getItem('userTheme') || 'light';
+    document.body.className = savedTheme;
+});
 
-
-  // NAV TOGGLE
+    // NAV TOGGLE (FROM LAST WEEK) 
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
+
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle("show");
     });
   }
 
-  // GRID TOGGLE
-  const toggleButton = document.getElementById('toggleGridButton');
-  const gridContainer = document.getElementById('myGridContainer');
-  if (toggleButton && gridContainer) {
-    toggleButton.addEventListener('click', () => {
-      gridContainer.classList.toggle('hidden-grid');
-      gridContainer.classList.toggle('visible-grid');
+  // BUTTON
+//key used in localStorage
+const STORAGE_KEY = "user_preference_simple";
 
-      toggleButton.textContent = gridContainer.classList.contains('hidden-grid')
-        ? "More Events"
-        : "Hide Events";
-    });
-  }
-
-
-// ------------------- ALERT BUTTON -------------------
-function showAlert() {
-  alert("You're now part of our mailing list!");
+try {
+    localStorage.setItem(STORAGE_KEY, username); //include this
+    document.getElementById ("username")
+//catch...
 }
 
+//function loadPreference {
+    //hm;
+
+//}
+
+  /*fix js*/
+
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.getElementById('toggleGridButton');
+  const gridContainer = document.getElementById('myGridContainer');
+
+  toggleButton.addEventListener('click', () => {
+    gridContainer.classList.toggle('hidden-grid');
+    gridContainer.classList.toggle('visible-grid');
+
+    if (gridContainer.classList.contains('hidden-grid')) {
+      toggleButton.textContent = "More Events";
+    } else {
+      toggleButton.textContent = "Hide Events";
+    }
+
+  });
+});
+
+
+
+  // ALERT BUTTON
+   function showAlert() {
+            alert("You're now part of our mailing list!");
+        }
 
 </script>
+
 </body>
 </html>
