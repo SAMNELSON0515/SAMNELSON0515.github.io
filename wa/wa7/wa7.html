@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CommunityWebpageHome</title>
   <style>
-   /* Define containers */
+    /*NAV TOGGLE(WA5) -- STILL NEED TO FIX CSS -- COULDN'T FIGURE IT OUT */
 .page-wrapper {
   container-type: inline-size;
-  container-name: layout;
 }
 
-/* NAV TOGGLE */
+
+/* NAV TOGGLE (WA5) */
 .main-nav {
-  container-type: inline-size;
   background-color: #18691b;
   color: white;
   padding: 2%;
@@ -83,43 +82,73 @@
   background-color: #cbcdff;
 }
 
-/* MOBILE-FIRST NAV DEFAULTS */
-.nav-menu {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #18691b;
-  padding: 1rem;
-}
-
-.nav-menu.show {
-  display: flex;
-}
-
-.nav-toggle {
-  display: flex;
-}
-
 /* TABLET NAV */
+
 @container (min-width: 768px) {
   .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #18691b;
+    padding: 1rem;
+  }
+}
+
+  .nav-menu.show {
     display: flex;
-    position: static;
-    flex-direction: row;
-    background: none;
-    padding: 0;
   }
 
   .nav-toggle {
     display: none;
   }
+
+  .nav-toggle span {
+    width: 100%;
+  }
+
+  .nav-toggle.active {
+    transform: rotate(90deg);
+  }
+
+
+/* DESKTOP NAV */
+
+@container (min-width: 1000px)  {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #18691b;
+    padding: 1rem;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle span {
+    width: 100%;
+  }
+
+  .nav-toggle.active {
+    transform: rotate(90deg);
+  }
 }
 
 /* GRID 1 SETUP */
+
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -139,7 +168,8 @@
 .footer  { grid-area: footer; }
 
 /* TABLET GRID 1 */
-@container layout (min-width: 768px) {
+
+@container (min-width: 768px) {
   .grid-container {
     grid-template-areas:
       "header header"
@@ -150,7 +180,8 @@
 }
 
 /* DESKTOP GRID 1 */
-@container layout (min-width: 1000px) {
+
+@container (min-width: 1000px) {
   .grid-container {
     justify-content: center;
     grid-template-areas:
@@ -238,19 +269,28 @@ input[type="email"] {
 }
 
 /* GRID 2 - TABLET */
-@container layout (min-width: 768px) {
+
+@container (min-width: 768px) {
   .visible-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     padding: 0.5rem;
     margin: 2rem auto;
     max-width: 900px;
   }
+}
+
+.visible-grid img {
+  width: 80%;
+  height: auto;
 }
 
 /* GRID 2 - DESKTOP */
-@container layout (min-width: 1000px) {
+
+@container (min-width: 1000px) {
   .visible-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     padding: 0.5rem;
@@ -259,6 +299,10 @@ input[type="email"] {
   }
 }
 
+.visible-grid img {
+  width: 80%;
+  height: auto;
+}
 
   </style>
 </head>
