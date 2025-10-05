@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
   <style>
+    .page-wrapper {
+    container-type: inline-size;
+    width: 100%;
+}
     /*NAV TOGGLE(WA5)*/
   .main-nav {
   background-color: #18691b;
@@ -80,7 +84,7 @@
 }
 
 
-@media (max-width: 768px) {
+@container(min-width: 768px) {
   .nav-menu {
     display: none;          
     flex-direction: column;
@@ -110,109 +114,40 @@
   }
 }
 
-/* GRID 1 SETUP */
-    .grid-container {
-  display: grid;
-  justify-content: center;
-  grid-template-areas:
-    "header sidebar"
-    "content footer";
-  grid-template-columns:  repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
-   margin: 2rem auto;
-   max-width: 900px;
-   img {
-    width: 80%;
-    height: auto;
-
-}
-  
-
-}
-.header  { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-.content { grid-area: content; }
-.footer  { grid-area: footer; }
-
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-areas:
-      "header"
-      "sidebar"
-      "content"
-      "footer";
-    grid-template-columns: 1fr; 
-
-    img {
-    width: 100%;
-    height: auto;
-
-}
-  }
-}
-
-/* BUTTON FUNCTIONALITY */
-#toggleGridButton {
-  display: block;
-  margin: 2rem auto;
-  align-items: center;  
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: rgb(176, 176, 176);
-  border-radius: 6px;
-  background-color: #18691b;
-  color: white;
-  cursor: pointer;
-}
-#toggleGridButton:hover {
-  background-color: #145214;
-  /*addhover state*/
-}
-
-.MailingListBtn {
-    display: block;
-  margin: 2rem auto;
-  align-items: center;  
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: rgb(176, 176, 176);
-  border-radius: 6px;
-  background-color: #18691b;
-  color: white;
-  cursor: pointer;
-
-}
-
-.MailingListBtn:hover {
-  background-color: #145214;
-  /*addhover state*/
-}
-
-
-/* GRID 2 SETUP*/
-.hidden-grid {
-  display:none;
-}
-.visible-grid
+@container(min-width: 1000px)
 {
-  display: grid;
-  grid-template-columns:  repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 2rem auto;
-  max-width: 900px;
-  gap: 1rem;
-}
+  .nav-menu {
+    display: none;          
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;            
+    left: 0;
+    width: 100%;
+    background-color: #18691b;
+    padding: 1rem;
+  }
 
+  .nav-menu.show {
+    display: flex;          
+  }
 
-@media (max-width: 768px) {
- .visible-grid  {
-    grid-template-columns: 1fr;
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle span {
+    width: 100%;
+  }
+
+  .nav-toggle.active {
+    transform: rotate(90deg);
   }
 }
+
+
   </style>
-<body>
+<body onload="checkCookies ()">
      <!-- NAV MENU-->
      <nav class="main-nav">
       <div class="nav-brand">Sierra Club-Indian Peaks Chapter</div>
@@ -222,21 +157,43 @@
             <span>  </span>
       </button>
   <ul class="nav-menu">
-    <li><a href="#home">Home</a></li>
+    <li><a href="https://samnelson0515.github.io/wa/wa7/wa7.html">Home</a></li>
     <li><a href="#upcoming_events">Upcoming Events</a></li>
     <li><a href="#volunteer_opportunities">Volunteer  Opportunities</a></li>
     <li><a href="#Contact">Contact</a></li>
-    <li><a  href="https://docs.google.com/document/d/1I13yjzhDJzeZe3MNBLRYpZZMt1hoJaqUUgnLDDJUqu8/edit?usp=sharing">Documentation</a>
+    <li><a  href="https://docs.google.com/document/d/1850Hz2NCna8v8qqIqUfGzOTXUTQaGmDNTNTj4ZYxIs8/edit?usp=sharing">Reflection</a>
   </ul>
     </nav>
-
+<section>
   <h2>Privacy Notice</h2>
 <p>We value your privacy. This site only stores:</p>
 <ul>
-  <li>Your language preference (English or Spanish)</li>
+  <li>Your email address</li>
 </ul>
-<p>This information is stored in your browser’s local storage and is never shared with anyone.</p>
+<p>This information is stored in your browser’s local storage and is never shared with anyone and will expire within 6 months if not renewed</p>
+</section>
 
+<section>
+<h3> Privacy Statement </h3>
+<p> This website only collects local data about email addresses voluntarily entered into our subscription service </p>
+<p> This information is necessary in allowing users to subscribe to our club and get notifications in their inbox. This provides an accessible means via the user experience to register for news and learn more about other events, rather than making it indirectly accessible. </p>
+<p> Data is stored locally, although it is set to expire by default every 6 months, unless a subscription is renewed. Email subscriptions are free. </p>
+<p> Nonetheless, users have control over their data by being given the option to opt out of the subscription service/as well as being able to clear their data at any point using the "Clear Local Data" button. If left alone, these functions won't run and the website will continue to hold on to the user's personal email address.</p>
+</section>
+
+
+
+<script>
     
+      // NAV TOGGLE (FROM LAST WEEK) 
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle("show");
+    });
+  }
+</script>
 </body>
 </html>

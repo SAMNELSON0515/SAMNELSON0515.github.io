@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CommunityWebpageHome</title>
   <style>
-    
-    /*NAV TOGGLE(WA5) switch to container */
+
+    .page-wrapper {
+    container-type: inline-size;
+    width: 100%;
+}
+    /*NAV TOGGLE(WA5)*/
   .main-nav {
   background-color: #18691b;
   color: white;
@@ -79,8 +83,8 @@
   background-color: #cbcdff;
 }
 
-/*Need to swtich this to container for final site*/
-@media (max-width: 768px) {
+
+@container(min-width: 768px) {
   .nav-menu {
     display: none;          
     flex-direction: column;
@@ -110,6 +114,40 @@
   }
 }
 
+/*still needs to be properly implemented -- ran out of time */
+@container(min-width: 1000px) 
+{
+  .nav-menu {
+    display: none;          
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;            
+    left: 0;
+    width: 100%;
+    background-color: #18691b;
+    padding: 1rem;
+  }
+
+  .nav-menu.show {
+    display: flex;          
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle span {
+    width: 100%;
+  }
+
+  .nav-toggle.active {
+    transform: rotate(90deg);
+  }
+}
+
+
+/* MOBILE LAYOUT - GRID 1 */
 .page-wrapper {
     container-type: inline-size;
     width: 100%;
@@ -125,10 +163,15 @@
   gap: 0.5rem;
   padding: 0.5rem;
   margin: 2rem auto;
+     img {
+    width: 80%;
+    height: auto;
+
+}
     
 }
 
-/* Tablet*/
+/* TABLET - GRID 1 */
 @container (min-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -140,7 +183,7 @@
 
 }
 
-/* Desktop */
+/* DESKTOP - GRID 1 */
 @container (min-width: 1000px) {
   .grid-container {
     justify-content: center;
@@ -159,7 +202,7 @@
 .footer  { grid-area: footer; }
 
 
-/* BUTTON FUNCTIONALITY */
+/* MORE EVENTS BUTTON FUNCTIONALITY */
 #toggleGridButton {
   display: block;
   margin: 2rem auto;
@@ -175,6 +218,26 @@
 #toggleGridButton:hover {
   background-color: #145214;
   /*addhover state*/
+}
+
+
+/* EMAIL ADDRESS FUNCTIONALITY  */
+.signup-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    display:none;
+}
+
+input[type="email"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
 }
 
 .MailingListBtn {
@@ -195,8 +258,16 @@
   background-color: #145214;
   /*addhover state*/
 
-
 }
+
+.signup-container.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+
+
+
 
 
 /* GRID 2 SETUP*/
@@ -207,20 +278,15 @@
 }
  .visible-grid  {
     grid-template-columns: 1fr;
+    img {
+    width: 80%;
+    height: auto;
+  }
   }
 
 
-.light {
-    background-color: antiquewhite;
-    color: black;
-}
 
-.dark {
-    background-color: rgb(100, 99, 99);
-    color:white; 
-}
-
-/*images*/
+/*TABLET*/
 
 @container (min-width: 768px) {
 .hidden-grid {
@@ -235,8 +301,13 @@
   margin: 2rem auto;
   max-width: 900px;
   gap: 1rem;
+   img {
+    width: 80%;
+    height: auto;
+  }
 }
 }
+/*DESKTOP*/
 
 @container (min-width: 1000px) {
     .hidden-grid {
@@ -252,14 +323,10 @@
   max-width: 900px;
   gap: 1rem;
 }
-
 }
-
-
-
   </style>
 </head>
-<body>
+<body onload="checkCookies ()">
     <!-- NAV MENU-->
      <nav class="main-nav">
       <div class="nav-brand">Sierra Club-Indian Peaks Chapter</div>
@@ -273,7 +340,8 @@
     <li><a href="#upcoming_events">Upcoming Events</a></li>
     <li><a href="#volunteer_opportunities">Volunteer  Opportunities</a></li>
     <li><a href="#Contact">Contact</a></li>
-    <li><a  href="https://docs.google.com/document/d/1I13yjzhDJzeZe3MNBLRYpZZMt1hoJaqUUgnLDDJUqu8/edit?usp=sharing">Documentation</a>
+    <li><a  href="https://samnelson0515.github.io/wa/wa7/privacynotice.html">Privacy Information</a>
+       <li><a  href="https://docs.google.com/document/d/1850Hz2NCna8v8qqIqUfGzOTXUTQaGmDNTNTj4ZYxIs8/edit?usp=sharing">Reflection</a>
   </ul>
     </nav>
 
@@ -285,16 +353,16 @@
     </header>
 
     <nav class="sidebar">
-  <h1> Who are we?</h1>
-  <p>The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.</p>
+  <h1 id="who">Who are we?</h1>
+  <p id="about">The Sierra Club is a grassroots environmental organization in the United States dedicated to protecting natural resources, promoting clean energy, and advocating for environmental justice.</p>
 </nav>
 
 <main class="content">
-  <h3>Want to be involved?</h3>
-  <p>We have an event this weekend! Come volunteer...</p>
-  <h4>If you have any questions--call Liz 555-5555</h4>
-  <p>When: 10/2/25, 3PM</p>
-  <p>Where: 7999 E Hannaway Dr</p>
+  <h3 id="Be_involved">Want to be involved?</h3>
+  <p id="event">We have an event this weekend! Come volunteer...</p>
+  <h4 id="questions">If you have any questions--call Liz 555-5555</h4>
+  <p id="when">When: 10/2/25, 3PM</p>
+  <p id="where">Where: 7999 E Hannaway Dr</p>
 </main>
 
     <footer class="footer">
@@ -303,46 +371,167 @@
     </div>
   </div>
 
-    <!-- Button hTML-->
+    <!-- Events Button hTML-->
   <button id="toggleGridButton">More Events</button>
-  <button class="MailingListBtn" onclick="showAlert()">Join our mailing list</button>
+
 
    <!-- Main grid dropdown-->
     <div class = "page-wrapper">
   <div id="myGridContainer" class="hidden-grid">
     <div >
        <img src="../wa6/img/img3.png" alt="pic of people hiking" width="462" height="300">
-      <h4> Boulder Hike</h4>
-        <p> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
+      <h4 id = "hike"> Boulder Hike</h4>
+        <p id = "join_us"> Join us for a guided hike through local trails to learn about regional ecology and conservation efforts. </p>
     </div>
    <div>
        <img src="../wa6/img/img4.png" alt="pic of park" width="462" height="300">
-      <h4> Park cleanup</h4>
-        <p> Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.. </p>
+      <h4 id = "park" > Park cleanup</h4>
+        <p id = "attend_our"> Attend our community cleanup day to help restore natural spaces and reduce pollution in local parks.. </p>
     </div>
     <div>
        <img src="../wa6/img/img5.png" alt="pic of people talking" width="462" height="300">
-      <h4> Workshop</h4>
-        <p> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
+      <h4 id = "workshop"> Workshop</h4>
+        <p id = "participate_in"> Participate in a climate action workshop focused on advocacy skills and sustainable living practices.
 </p>
     </div>
    <div >
        <img src="../wa6/img/JOEL6.png" alt="pic of Joel" width="462" height="300">
-      <h4> Monthly Chapter meeting </h4>
-        <p> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
+      <h4 id = "monthly_chapter"> Monthly Chapter meeting </h4>
+        <p id = "come_to"> Come to our monthly chapter meeting to connect with members, discuss campaigns, and plan future events. </p>
     </div>
     </div>
   </div>
+
+  <!--Mailing list HTML-->
+  <button class="MailingListBtn" id="mailingListBtn" >Join our mailing list</button>
+<div class="signup-container" id="signupContainer">
+        <h2>Sign Up for Updates!</h2>
+        <form id="emailSignupForm">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <!--Data clear button-->
+    <p id="demo"></p>
+
+     <button id="clearLocalStorageBtn">Clear Local Storage</button>
+
+
+     <!--Opt out button-->
+<div id="dataNotice" style="background:#f2f2f2; padding:10px; margin:10px 0; border:1px solid #ccc;">
+  We store personal email information for subscribers, would you like to opt out of your subsciption?
+  <button id="optOutBtn">Opt out</button>
+</div>
+
 <script>
-  //Langauge 
-  // Save language choice
-function setLanguage(lang) {
-    localStorage.setItem('userLanguage', lang);
-    // Update page content based on language
+  //EMAIL LOCAL STORAGE
+function checkCookies() {
+  var text = navigator.cookieEnabled ? "Cookies are enabled." : "Cookies are not enabled.";
+  document.getElementById("demo").innerHTML = text;
 }
 
-// Load on page visit
-const userLang = localStorage.getItem('userLanguage') || 'en';
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('emailSignupForm');
+    const emailInput = document.getElementById('email');
+    const messageDisplay = document.getElementById('message');
+
+    // LoadIing previously saved email if it exists
+    const savedEmail = localStorage.getItem('userEmail');
+    if (savedEmail) {
+        emailInput.value = savedEmail;
+        messageDisplay.textContent = 'You already have a subscription!';
+        messageDisplay.style.color = 'green';
+    }
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        const email = emailInput.value;
+
+        if (email) {
+            // Saving email to local storage 
+            localStorage.setItem('userEmail', email);
+            messageDisplay.textContent = 'Thank you for subscribing!';
+            messageDisplay.style.color = 'green';
+            
+        } else {
+            messageDisplay.textContent = 'Please enter a valid email address.';
+            messageDisplay.style.color = 'red';
+        }
+
+    });
+});
+
+for (let i = 0; i < localStorage.length; i++) {
+  console.log(localStorage.getItem(localStorage.key(i)));
+}
+
+document.getElementById("mailingListBtn").addEventListener("click", function() {
+  const signup = document.getElementById("signupContainer");
+  signup.classList.toggle("show");
+});
+
+//DATA EXPIRATION METHOD
+function setWithExpiry(email, value,ttl) {
+    const now = new Date();
+    const item = {
+        value: value,
+        expiry: now.getTime() +  ttl 
+    };
+    localStorage.setItem(email, JSON.stringify(item));
+}
+
+
+setWithExpiry('init', 'true', 15552000000);
+
+
+
+    function getWithExpiry(email) {
+        const itemStr = localStorage.getItem(email);
+
+        if (!itemStr) {
+            return null;
+        }
+
+        const item = JSON.parse(itemStr);
+        const now = new Date();
+
+        if (now.getTime() > item.expiry) {
+            localStorage.removeItem(email); 
+            return null;
+        }
+
+        return item.value;
+    }
+
+//CLEARING DATA
+    document.addEventListener('DOMContentLoaded', function() {
+        const clearButton = document.getElementById('clearLocalStorageBtn');
+
+        if (clearButton) {
+            clearButton.addEventListener('click', function() {
+                localStorage.clear();
+                alert('Local storage has been cleared!'); 
+            });
+        }
+    });
+
+
+//OPT OUT BUTTON. 
+document.getElementById('optOutBtn').addEventListener('click', () => {
+
+  localStorage.clear();
+  console.log("User opted out. All local data cleared.");
+
+  document.getElementById('dataNotice').style.display = 'none';
+
+  setLanguage('en'); 
+  const form = document.getElementById('myForm');
+  if (form) form.reset();
+});
 
 
   // NAV TOGGLE
@@ -355,25 +544,24 @@ const userLang = localStorage.getItem('userLanguage') || 'en';
   }
 
   // GRID TOGGLE
+  
+
+  document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('toggleGridButton');
   const gridContainer = document.getElementById('myGridContainer');
-  if (toggleButton && gridContainer) {
-    toggleButton.addEventListener('click', () => {
-      gridContainer.classList.toggle('hidden-grid');
-      gridContainer.classList.toggle('visible-grid');
 
-      toggleButton.textContent = gridContainer.classList.contains('hidden-grid')
-        ? "More Events"
-        : "Hide Events";
-    });
-  }
+  toggleButton.addEventListener('click', () => {
+    gridContainer.classList.toggle('hidden-grid');
+    gridContainer.classList.toggle('visible-grid');
 
+    if (gridContainer.classList.contains('hidden-grid')) {
+      toggleButton.textContent = "More Events";
+    } else {
+      toggleButton.textContent = "Hide Events";
+    }
 
-// ------------------- ALERT BUTTON -------------------
-function showAlert() {
-  alert("You're now part of our mailing list!");
-}
-
+  });
+});
 
 </script>
 </body>
