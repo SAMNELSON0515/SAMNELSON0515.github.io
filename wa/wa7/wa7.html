@@ -270,19 +270,25 @@ input[type="email"] {
 
 
 
-/* GRID 2 SETUP*/
+/* GRID 2 SETUP- MOBILE*/
 
-.page-wrapper {
-    container-type: inline-size;
-    width: 100%;
+.hidden-grid {
+  display: none; 
 }
- .visible-grid  {
-    grid-template-columns: 1fr;
-    img {
-    width: 80%;
-    height: auto;
-  }
-  }
+
+.visible-grid {
+display: grid;       
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 2rem auto;
+}
+
+
+.visible-grid img {
+  width: 80%;
+  height: auto;
+}
 
 
 
