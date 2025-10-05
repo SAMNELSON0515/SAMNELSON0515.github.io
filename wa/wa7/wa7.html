@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CommunityWebpageHome</title>
   <style>
-
-    .page-wrapper {
-    container-type: inline-size;
-    width: 100%;
+    /*NAV TOGGLE(WA5) -- STILL NEED TO FIX CSS -- COULDN'T FIGURE IT OUT */
+.page-wrapper {
+  container-type: inline-size;
+  width: 100%;
 }
-    /*NAV TOGGLE(WA5)*/
-  .main-nav {
+
+/* NAV TOGGLE (WA5) */
+.main-nav {
   background-color: #18691b;
   color: white;
   padding: 2%;
@@ -21,9 +22,8 @@
   margin: 0;
   font-size: 1.25rem;
   border-radius: 40px;
-  position: relative; 
+  position: relative;
 }
-
 
 .nav-brand {
   font-weight: bold;
@@ -51,9 +51,8 @@
   outline: 3px solid #6061BE;
 }
 
-
 .nav-toggle {
-  display: none; 
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -83,14 +82,14 @@
   background-color: #cbcdff;
 }
 
-
-@container(min-width: 768px) {
+/* TABLET NAV */
+@container (min-width: 768px) {
   .nav-menu {
-    display: none;          
+    display: none;
     flex-direction: column;
     gap: 1rem;
     position: absolute;
-    top: 100%;            
+    top: 100%;
     left: 0;
     width: 100%;
     background-color: #18691b;
@@ -98,7 +97,7 @@
   }
 
   .nav-menu.show {
-    display: flex;          
+    display: flex;
   }
 
   .nav-toggle {
@@ -114,15 +113,14 @@
   }
 }
 
-/*still needs to be properly implemented -- ran out of time */
-@container(min-width: 1000px) 
-{
+/* DESKTOP NAV */
+@container (min-width: 1000px) {
   .nav-menu {
-    display: none;          
+    display: none;
     flex-direction: column;
     gap: 1rem;
     position: absolute;
-    top: 100%;            
+    top: 100%;
     left: 0;
     width: 100%;
     background-color: #18691b;
@@ -130,7 +128,7 @@
   }
 
   .nav-menu.show {
-    display: flex;          
+    display: flex;
   }
 
   .nav-toggle {
@@ -146,12 +144,7 @@
   }
 }
 
-
-/* MOBILE LAYOUT - GRID 1 */
-.page-wrapper {
-    container-type: inline-size;
-    width: 100%;
-}
+/* GRID 1 SETUP */
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -159,19 +152,18 @@
     "sidebar"
     "content"
     "footer";
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
   gap: 0.5rem;
   padding: 0.5rem;
   margin: 2rem auto;
-     img {
-    width: 80%;
-    height: auto;
-
-}
-    
 }
 
-/* TABLET - GRID 1 */
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer  { grid-area: footer; }
+
+/* TABLET GRID 1 */
 @container (min-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -180,10 +172,9 @@
       "footer footer";
     grid-template-columns: 1fr 2fr;
   }
-
 }
 
-/* DESKTOP - GRID 1 */
+/* DESKTOP GRID 1 */
 @container (min-width: 1000px) {
   .grid-container {
     justify-content: center;
@@ -193,20 +184,13 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 900px;
   }
-
 }
 
-.header  { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-.content { grid-area: content; }
-.footer  { grid-area: footer; }
-
-
-/* MORE EVENTS BUTTON FUNCTIONALITY */
+/* MORE EVENTS BUTTON */
 #toggleGridButton {
   display: block;
   margin: 2rem auto;
-  align-items: center;  
+  align-items: center;
   padding: 0.75rem;
   font-size: 1rem;
   border: rgb(176, 176, 176);
@@ -215,35 +199,34 @@
   color: white;
   cursor: pointer;
 }
+
 #toggleGridButton:hover {
   background-color: #145214;
-  /*addhover state*/
 }
 
-
-/* EMAIL ADDRESS FUNCTIONALITY  */
+/* SIGNUP FORM */
 .signup-container {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    display:none;
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  display: none;
 }
 
 input[type="email"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 .MailingListBtn {
-    display: block;
+  display: block;
   margin: 2rem auto;
-  align-items: center;  
+  align-items: center;
   padding: 0.75rem;
   font-size: 1rem;
   border: rgb(176, 176, 176);
@@ -251,85 +234,68 @@ input[type="email"] {
   background-color: #18691b;
   color: white;
   cursor: pointer;
-
 }
 
 .MailingListBtn:hover {
   background-color: #145214;
-  /*addhover state*/
-
 }
 
 .signup-container.show {
   display: block;
-  animation: fadeIn 0.3s ease;
 }
 
-
-
-
-
-
-/* GRID 2 SETUP- MOBILE*/
-
+/* GRID 2 - MOBILE */
 .hidden-grid {
-  display: none; 
+  display: none;
 }
 
 .visible-grid {
-display: grid;       
+  display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
   padding: 0.5rem;
   margin: 2rem auto;
 }
 
+.visible-grid img {
+  width: 80%;
+  height: auto;
+}
+
+/* GRID 2 - TABLET */
+@container (min-width: 768px) {
+  .visible-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
+  }
+}
 
 .visible-grid img {
   width: 80%;
   height: auto;
 }
 
-
-
-/*TABLET*/
-
-@container (min-width: 768px) {
-.hidden-grid {
-  display:none;
-}
-.visible-grid
-{
-  display: grid;
-  grid-template-columns:  repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 2rem auto;
-  max-width: 900px;
-  gap: 1rem;
-   img {
-    width: 80%;
-    height: auto;
+/* GRID 2 - DESKTOP */
+@container (min-width: 1000px) {
+  .visible-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
   }
 }
-}
-/*DESKTOP*/
 
-@container (min-width: 1000px) {
-    .hidden-grid {
-  display:none;
+.visible-grid img {
+  width: 80%;
+  height: auto;
 }
-.visible-grid
-{
-  display: grid;
-  grid-template-columns:  repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin: 2rem auto;
-  max-width: 900px;
-  gap: 1rem;
-}
-}
+
   </style>
 </head>
 <body onload="checkCookies ()">
@@ -541,13 +507,14 @@ document.getElementById('optOutBtn').addEventListener('click', () => {
 
 
   // NAV TOGGLE
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle("show");
-    });
-  }
+ const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+navToggle.addEventListener('click', showMenu);
+
+function showMenu() {
+  navMenu.classList.toggle ("show");
+}
 
   // GRID TOGGLE
   
@@ -568,7 +535,6 @@ document.getElementById('optOutBtn').addEventListener('click', () => {
 
   });
 });
-
 </script>
 </body>
 </html>
