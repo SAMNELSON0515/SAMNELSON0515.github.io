@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CommunityWebpageHome</title>
   <style>
-    /*NAV TOGGLE(WA5) -- STILL NEED TO FIX CSS -- COULDN'T FIGURE IT OUT */
-/* Define containers */
+   /* Define containers */
 .page-wrapper {
   container-type: inline-size;
   container-name: layout;
@@ -106,7 +105,6 @@
 }
 
 /* TABLET NAV */
-
 @container (min-width: 768px) {
   .nav-menu {
     display: flex;
@@ -115,7 +113,6 @@
     background: none;
     padding: 0;
   }
-
 
   .nav-toggle {
     display: none;
@@ -142,7 +139,6 @@
 .footer  { grid-area: footer; }
 
 /* TABLET GRID 1 */
-@supports (container-type: inline-size) {
 @container layout (min-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -152,10 +148,8 @@
     grid-template-columns: 1fr 2fr;
   }
 }
-}
 
 /* DESKTOP GRID 1 */
-@supports (container-type: inline-size) {
 @container layout (min-width: 1000px) {
   .grid-container {
     justify-content: center;
@@ -165,7 +159,6 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 900px;
   }
-}
 }
 
 /* MORE EVENTS BUTTON */
@@ -245,7 +238,6 @@ input[type="email"] {
 }
 
 /* GRID 2 - TABLET */
-@supports (container-type: inline-size) {
 @container layout (min-width: 768px) {
   .visible-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -255,9 +247,8 @@ input[type="email"] {
     max-width: 900px;
   }
 }
-}
+
 /* GRID 2 - DESKTOP */
-@supports (container-type: inline-size) {
 @container layout (min-width: 1000px) {
   .visible-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -267,7 +258,7 @@ input[type="email"] {
     max-width: 900px;
   }
 }
-}
+
 
   </style>
 </head>
