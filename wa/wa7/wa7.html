@@ -106,6 +106,7 @@
 }
 
 /* TABLET NAV */
+
 @container (min-width: 768px) {
   .nav-menu {
     display: flex;
@@ -114,6 +115,7 @@
     background: none;
     padding: 0;
   }
+
 
   .nav-toggle {
     display: none;
@@ -140,6 +142,7 @@
 .footer  { grid-area: footer; }
 
 /* TABLET GRID 1 */
+@supports (container-type: inline-size) {
 @container layout (min-width: 768px) {
   .grid-container {
     grid-template-areas:
@@ -149,8 +152,10 @@
     grid-template-columns: 1fr 2fr;
   }
 }
+}
 
 /* DESKTOP GRID 1 */
+@supports (container-type: inline-size) {
 @container layout (min-width: 1000px) {
   .grid-container {
     justify-content: center;
@@ -160,6 +165,7 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 900px;
   }
+}
 }
 
 /* MORE EVENTS BUTTON */
@@ -239,6 +245,7 @@ input[type="email"] {
 }
 
 /* GRID 2 - TABLET */
+@supports (container-type: inline-size) {
 @container layout (min-width: 768px) {
   .visible-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -248,8 +255,9 @@ input[type="email"] {
     max-width: 900px;
   }
 }
-
+}
 /* GRID 2 - DESKTOP */
+@supports (container-type: inline-size) {
 @container layout (min-width: 1000px) {
   .visible-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -258,6 +266,7 @@ input[type="email"] {
     margin: 2rem auto;
     max-width: 900px;
   }
+}
 }
 
   </style>
